@@ -1,0 +1,39 @@
+<Page
+    x:Class="ParkingFront.Views.Register.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ParkingFront.Views.Register"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Aquí comienza el contenido de la página -->
+    <Grid Padding="20">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+            <TextBlock Text="Registro" FontSize="24" FontWeight="Bold" TextAlignment="Center" />
+
+            <!-- Identificación -->
+            <TextBox Header="Identificación" Text="{Binding Identificacion, Mode=TwoWay}" PlaceholderText="Ingresa tu numero de identificación" Width="300" />
+
+            <!-- Nombre -->
+            <TextBox Header="Nombre" Text="{Binding Nombre, Mode=TwoWay}" PlaceholderText="Ingresa tu nombre" Width="300" />
+
+            <!-- Contraseña -->
+            <PasswordBox Header="Contraseña" Password="{Binding Contrasena, Mode=TwoWay}" PlaceholderText="Ingresa una contraseña" Width="300" />
+
+            <!-- Correo -->
+            <TextBox Header="Correo" Text="{Binding Correo, Mode=TwoWay}" PlaceholderText="Ingresa tu correo" Width="300" />
+
+            <!-- Teléfono -->
+            <TextBox Header="Teléfono" Text="{Binding Phone, Mode=TwoWay}" PlaceholderText="Ingresa tu número de teléfono" Width="300" />
+
+            <!-- Botones -->
+            <Button Content="Registrarse" Command="{Binding RegisterCommand}" Width="300" />
+            <Button Content="Volver" Command="{Binding BackCommand}" Width="300" />
+        </StackPanel>
+
+        <muxc:InfoBar x:Name="NotificationInfoBar" IsOpen="False" />
+    </Grid>
+    <!-- Fin del contenido de la página -->
+</Page>

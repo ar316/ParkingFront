@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ParkingFront (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ParkingFront (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
