@@ -13,6 +13,8 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using ParkingFront.Views.Login;
+using ParkingFront.Services.Navigation;
+using ParkingFront.ViewModels.Login;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -24,11 +26,12 @@ namespace ParkingFront
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             this.InitializeComponent();
-            MainFrame.Navigate(typeof(LoginPage));
+
         }
-       
     }
 }
