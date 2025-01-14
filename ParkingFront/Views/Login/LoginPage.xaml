@@ -3,25 +3,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid Padding="20">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
             <TextBlock Text="Inicio de Sesión" FontSize="24" FontWeight="Bold" />
+            
+            <!--identificacion-->
             <TextBox
-                x:Name="IdentificationTextBox"
                 Header="Identificación"
+                Text="{Binding Identification, Mode=TwoWay}"
                 PlaceholderText="Ingresa tu identificación"
                 Width="300" />
-            <PasswordBox
-                x:Name="PasswordBox"
-                Header="Contraseña"
-                PlaceholderText="Ingresa tu contraseña"
-                Width="300" />
-            <Button Content="Iniciar Sesión" Click="OnLoginClick" Width="300" />
+
+            <!--contraseña-->
+            <PasswordBox Header="Contraseña" 
+                         Password="{Binding Password, Mode=TwoWay}"
+                         PlaceholderText="Ingresa una contraseña" Width="300" />
+
+
+            <Button Content="Iniciar sesión" Command="{Binding LoginCommand }" Width="300" />
             <Button Content="Registrarse" Click="OnRegisterClick" Width="300" />
         </StackPanel>
+
+        <muxc:InfoBar x:Name="NotificationInfoBar" IsOpen="False" />
     </Grid>
 
 </Page>

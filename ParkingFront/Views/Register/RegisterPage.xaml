@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!-- Aquí comienza el contenido de la página -->
     <Grid Padding="20">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
             <TextBlock Text="Registro" FontSize="24" FontWeight="Bold" TextAlignment="Center" />
@@ -28,12 +27,10 @@
             <!-- Teléfono -->
             <TextBox Header="Teléfono" Text="{Binding Phone, Mode=TwoWay}" PlaceholderText="Ingresa tu número de teléfono" Width="300" />
 
-            <!-- Botones -->
             <Button Content="Registrarse" Command="{Binding RegisterCommand}" Width="300" />
             <Button Content="Volver" Command="{Binding BackCommand}" Width="300" />
         </StackPanel>
 
         <muxc:InfoBar x:Name="NotificationInfoBar" IsOpen="False" />
     </Grid>
-    <!-- Fin del contenido de la página -->
 </Page>

@@ -1,5 +1,9 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using ParkingFront.DTO.Login;
+using ParkingFront.Services.Navigation;
+using ParkingFront.ViewModels.Login;
+using ParkingFront.Views.Home;
 using ParkingFront.Views.Register;
 
 
@@ -7,41 +11,26 @@ namespace ParkingFront.Views.Login
 {
     public sealed partial class LoginPage : Page
     {
+        private readonly LoginViewModel _viewModel;
+        private readonly INavigationService _navigationService;
 
-
+        // Utilizando el contenedor de dependencias
         public LoginPage()
         {
             this.InitializeComponent();
+
+            _viewModel = (LoginViewModel)App.Services.GetService(typeof(LoginViewModel));
+            _navigationService = (INavigationService)App.Services.GetService(typeof(INavigationService));
+
+            this.DataContext = _viewModel;
         }
 
-        // Lógica para Iniciar Sesión
-        private void OnLoginClick(object sender, RoutedEventArgs e)
-        {
-
-            string identificacion = IdentificationTextBox.Text;
-            string contrasena = PasswordBox.Password;
-
-            if (string.IsNullOrEmpty(identificacion) || string.IsNullOrEmpty(contrasena))
-            {
-                ContentDialog dialog = new ContentDialog
-                {
-                    Title = "Error",
-                    Content = "Por favor, completa todos los campos.",
-                    CloseButtonText = "OK"
-                };
-                dialog.ShowAsync();
-                return;
-            }
-
-        }
-
-     
         private void OnRegisterClick(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(RegisterPage));
         }
 
 
-  
+
     }
 }

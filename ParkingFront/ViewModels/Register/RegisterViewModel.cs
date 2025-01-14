@@ -1,6 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using ParkingFront.Services.RegisterService;
 using ParkingFront.Utilities;
+using ParkingFront.Views.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace ParkingFront.ViewModels.Register
                 if (_nombre != value)
                 {
                     _nombre = value;
-                    OnPropertyChanged(nameof(Nombre)); // Notifica al binding
+                    OnPropertyChanged(nameof(Nombre)); 
                 }
             }
         }
@@ -44,7 +45,7 @@ namespace ParkingFront.ViewModels.Register
                 if (_identificacion != value)
                 {
                     _identificacion = value;
-                    OnPropertyChanged(nameof(Identificacion)); // Notifica al binding
+                    OnPropertyChanged(nameof(Identificacion)); 
                 }
             }
         }
@@ -57,7 +58,7 @@ namespace ParkingFront.ViewModels.Register
                 if (_contrasena != value)
                 {
                     _contrasena = value;
-                    OnPropertyChanged(nameof(Contrasena)); // Notifica al binding
+                    OnPropertyChanged(nameof(Contrasena)); 
                 }
             }
         }
@@ -125,6 +126,7 @@ namespace ParkingFront.ViewModels.Register
             if (result)
             {
                 NotificationHelper.ShowNotification(_infoBar, "Éxito", "Registro exitoso.", InfoBarSeverity.Success);
+                
             }
             else
             {
