@@ -26,8 +26,6 @@ namespace ParkingFront.ViewModels.HomeParking
             get => _plate;
             set
             {
-                this._plate = value;
-                OnPropertyChanged(nameof(Plate));
             }
         }
 
@@ -43,7 +41,7 @@ namespace ParkingFront.ViewModels.HomeParking
             _infoBar = infoBar;
             ValidateRentCommand = new RelayCommand<XamlRoot>(async (xamlRoot) => await ValidateRent(xamlRoot));
             _dialogService = dialogService;
-        }
+    }
 
         private async void ValidateRent()
         {

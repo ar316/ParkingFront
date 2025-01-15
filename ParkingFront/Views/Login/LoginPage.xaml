@@ -24,7 +24,10 @@
 
 
             <Button Content="Iniciar sesión" Command="{Binding LoginCommand }" Width="300" />
+<<<<<<< HEAD
             <Button Content="Ingresar al parqueadero" Command="{Binding LoginGuessCommand }" Width="300" />
+=======
+>>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
             <Button Content="Registrarse" Click="OnRegisterClick" Width="300" />
         </StackPanel>
 

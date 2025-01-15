@@ -6,10 +6,14 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using ParkingFront.DTO.Login;
+<<<<<<< HEAD
 using ParkingFront.Services.DialogService;
 using ParkingFront.Services.Navigation;
 using ParkingFront.ViewModels.HomeParking;
 using ParkingFront.ViewModels.Login;
+=======
+using ParkingFront.ViewModels.HomeParking;
+>>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,11 +32,17 @@ namespace ParkingFront.Views.Home
     /// </summary>
     public sealed partial class HomePage : Page
     {
+<<<<<<< HEAD
         private HomeParkingViewModel _viewModel;
+=======
+        private LoginResponse _loginResponse;
+        private HomeParkingViewModel ViewModel;
+>>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
 
         public HomePage()
         {
             this.InitializeComponent();
+<<<<<<< HEAD
             _viewModel = (HomeParkingViewModel)App.Services.GetService(typeof(HomeParkingViewModel));
             _viewModel = new HomeParkingViewModel(NotificationInfoBar, (IDialogService)App.Services.GetService(typeof(IDialogService)));
             _viewModel.XamlRoot = this.Content.XamlRoot;
@@ -48,5 +58,21 @@ namespace ParkingFront.Views.Home
 
 
 
+=======
+            ViewModel = new HomeParkingViewModel();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (e.Parameter is LoginResponse loginResponse)
+            {
+                _loginResponse = loginResponse;
+                ViewModel.ClientName = _loginResponse.user.name;
+            }
+        }
+
+>>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
     }
 }

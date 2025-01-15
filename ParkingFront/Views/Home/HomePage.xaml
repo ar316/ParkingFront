@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ParkingFront.Views.Home"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+<<<<<<< HEAD
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -51,3 +52,25 @@
         <muxc:InfoBar x:Name="NotificationInfoBar" IsOpen="False" />
     </Grid>
 </Page>
+=======
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10">
+            <TextBlock Text="Bienvenido al parking" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Text="{x:Bind ViewModel.ClientName, Mode=OneWay}" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <!-- Contenido principal de la página -->
+        </Grid>
+    </Grid>
+</Page>
+>>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
