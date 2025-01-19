@@ -19,13 +19,9 @@ namespace ParkingFront.Views.Login
         {
             this.InitializeComponent();
 
-<<<<<<< HEAD
             _viewModel = new LoginViewModel(NotificationInfoBar,
                 (INavigationService)App.Services.GetService(typeof(INavigationService)));
-=======
-            _viewModel = (LoginViewModel)App.Services.GetService(typeof(LoginViewModel));
-            _navigationService = (INavigationService)App.Services.GetService(typeof(INavigationService));
->>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
+
 
             this.DataContext = _viewModel;
         }
@@ -35,6 +31,10 @@ namespace ParkingFront.Views.Login
             Frame.Navigate(typeof(RegisterPage));
         }
 
+        private void OnInciok(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(IncioPage));
+        }
 
 
     }

@@ -10,6 +10,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Notifications;
+
 
 namespace ParkingFront.ViewModels.HomeParking
 {
@@ -19,6 +21,7 @@ namespace ParkingFront.ViewModels.HomeParking
         private string _plate;
         private readonly InfoBar _infoBar;
         public ICommand ValidateRentCommand { get; }
+        private readonly Action _notification;
         private readonly IDialogService _dialogService;
 
         public string Plate
@@ -26,6 +29,8 @@ namespace ParkingFront.ViewModels.HomeParking
             get => _plate;
             set
             {
+                _plate = value;
+                OnPropertyChanged(nameof(Plate));
             }
         }
 
@@ -36,34 +41,31 @@ namespace ParkingFront.ViewModels.HomeParking
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public HomeParkingViewModel(InfoBar infoBar, IDialogService dialogService)
+        public HomeParkingViewModel(InfoBar infoBar, IDialogService dialogService )
         {
-            _infoBar = infoBar;
-            ValidateRentCommand = new RelayCommand<XamlRoot>(async (xamlRoot) => await ValidateRent(xamlRoot));
             _dialogService = dialogService;
+            _infoBar = infoBar;
+            ValidateRentCommand = new RelayCommand(ValidateRent);
+        
     }
 
         private async void ValidateRent()
         {
-           NotificationHelper.ShowNotification(_infoBar, "Rent validated", this.Plate ,  InfoBarSeverity.Success);
-           ToastNotificationHelper.ShowToastNotification("Validacion", "Puede continuar .");
-            await ShowDialog();
-        }
-
-        private async Task ShowDialog()
-        {
-            // Aquí necesitas pasar el XamlRoot desde la vista
-            var result = await _dialogService.ShowDialogAsync(null, "Título del diálogo", "Este es el contenido del diálogo.");
-
-            if (result == ContentDialogResult.Primary)
+            if(this._plate.Length >= 5 && this._plate.Length < 5)
             {
-                await _dialogService.ShowDialogAsync(null, "Resultado", "Has aceptado el diálogo.", "Ok");
+                NotificationHelper.ShowNotification(_infoBar, "Rent validated", this._plate, InfoBarSeverity.Success);
             }
             else
             {
-                await _dialogService.ShowDialogAsync(null, "Resultado", "Has cancelado el diálogo.", "Ok");
+                NotificationHelper.ShowNotification(_infoBar, "Rent invaluidaaaa", this._plate, InfoBarSeverity.Error);
             }
+
+
+
         }
+
+       
+
     }
 
 }

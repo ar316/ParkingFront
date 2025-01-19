@@ -14,6 +14,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Views\Home\HomePage.xaml" />
+    <None Remove="Views\IncioPage.xaml" />
     <None Remove="Views\Register\RegisterPage.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -43,10 +44,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />
-=======
->>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
@@ -58,12 +56,18 @@
     <Page Update="Views\Home\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Update="Views\IncioPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <None Update="Views\Login\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <Page Update="Views\Register\RegisterPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\InitialParking\" />
   </ItemGroup>
 
   <!--

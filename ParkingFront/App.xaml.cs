@@ -12,13 +12,10 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
-<<<<<<< HEAD
 using ParkingFront.Services.DialogService;
 using ParkingFront.Services.Navigation;
 using ParkingFront.Utilities;
-=======
-using ParkingFront.Services.Navigation;
->>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
+
 using ParkingFront.ViewModels.HomeParking;
 using ParkingFront.ViewModels.Login;
 using ParkingFront.ViewModels.Register;
@@ -57,12 +54,7 @@ namespace ParkingFront
             services.AddTransient<HomeParkingViewModel>();
             services.AddTransient<MainWindow>();
             services.AddSingleton<InfoBar>();
-<<<<<<< HEAD
             services.AddSingleton<IDialogService, DialogService>();
-=======
-
->>>>>>> de16f389f219835cd8662c665b819e1cde6bde72
-
 
 
             // Registrar el servicio de navegación

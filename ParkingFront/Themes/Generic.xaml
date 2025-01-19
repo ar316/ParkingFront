@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ParkingFront"
+    xmlns:local2="using:ParkingFront.Views">
+
+    <Style TargetType="local2:IncioPage">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:IncioPage">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <!-- Add content for IncioPage here if needed -->
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
