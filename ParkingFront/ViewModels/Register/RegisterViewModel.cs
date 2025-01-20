@@ -103,8 +103,8 @@ namespace ParkingFront.ViewModels.Register
         public RegisterViewModel(Action navigateBack, InfoBar infoBar)
         {
             _navigateBack = navigateBack;
-            RegisterCommand = new RelayCommand(OnRegister);
-            BackCommand = new RelayCommand(OnBack);
+            RegisterCommand = new RelayCommandG(OnRegister);
+            BackCommand = new RelayCommandG(OnBack);
             _apiService = _apiService = new RegisterService();
             _infoBar = infoBar;
         }

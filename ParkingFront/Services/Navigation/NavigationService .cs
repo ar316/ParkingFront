@@ -2,7 +2,9 @@
 using ParkingFront.ViewModels.HomeParking;
 using ParkingFront.ViewModels.Login;
 using ParkingFront.ViewModels.Register;
+using ParkingFront.ViewModels.Spaces;
 using ParkingFront.Views.Home;
+using ParkingFront.Views.InitialParking;
 using ParkingFront.Views.Login;
 using ParkingFront.Views.Register;
 using System;
@@ -35,6 +37,10 @@ namespace ParkingFront.Services.Navigation
             else if (typeof(TViewModel) == typeof(RegisterViewModel))
             {
                 _frame.Navigate(typeof(RegisterPage));
+            }
+            else if (typeof(TViewModel) == typeof(SpacesViewModel))
+            {
+                _frame.Navigate(typeof(IncioPage));
             }
         }
     }

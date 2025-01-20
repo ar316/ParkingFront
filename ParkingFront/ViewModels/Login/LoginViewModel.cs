@@ -16,6 +16,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 using ParkingFront.Views.Home;
 using ParkingFront.ViewModels.HomeParking;
+using ParkingFront.ViewModels.Spaces;
 
 namespace ParkingFront.ViewModels.Login
 {
@@ -26,6 +27,7 @@ namespace ParkingFront.ViewModels.Login
         private string _password;
         private readonly INavigationService _navigationService;
         public ICommand LoginCommand { get; }
+        public ICommand InitialParkingCommand { get; }
         public ICommand LoginGuessCommand { get; }
         private readonly InfoBar _infoBar;
         private readonly LoginService _loginService;
@@ -66,11 +68,12 @@ namespace ParkingFront.ViewModels.Login
 
         public LoginViewModel(InfoBar notificationInfoBar, INavigationService navigationService)
         {
-            LoginCommand = new RelayCommand(OnLogin);
+            LoginCommand = new RelayCommandG(OnLogin);
+            InitialParkingCommand = new RelayCommandG(OnLoginGuessInitial);
             _infoBar = notificationInfoBar;
             _loginService = new LoginService();
             _navigationService = navigationService;
-            LoginGuessCommand = new RelayCommand(OnLoginGuess);
+            LoginGuessCommand = new RelayCommandG(OnLoginGuess);
         }
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -78,6 +81,11 @@ namespace ParkingFront.ViewModels.Login
         public async void OnLoginGuess()
         {
             _navigationService.NavigateTo<HomeParkingViewModel>();
+        }
+
+        public async void OnLoginGuessInitial()
+        {
+            _navigationService.NavigateTo<SpacesViewModel>();
         }
 
 

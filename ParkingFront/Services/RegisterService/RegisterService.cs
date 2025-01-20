@@ -12,16 +12,17 @@ namespace ParkingFront.Services.RegisterService
     {
         private HttpClient _httpClient;
 
-        public RegisterService() {
+        public RegisterService()
+        {
             {
                 _httpClient = new HttpClient
                 {
-                    BaseAddress = new Uri("http://localhost:5235/api/") 
+                    BaseAddress = new Uri("http://localhost:5235/api/")
                 };
             }
         }
 
-        public async Task<Boolean> RegisterUserAsync(string identification, string name , string phone, string email, string password)
+        public async Task<Boolean> RegisterUserAsync(string identification, string name, string phone, string email, string password)
         {
             var user = new
             {

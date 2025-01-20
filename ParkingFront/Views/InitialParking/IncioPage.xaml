@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="ParkingFront.Views.IncioPage"
+    x:Class="ParkingFront.Views.InitialParking.IncioPage"
+    x:Name="IncioPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ParkingFront.Views"
+    xmlns:local="using:ParkingFront.Views.InitialParking"
     xmlns:models="using:ParkingFront.DTO"
     xmlns:converter="using:ParkingFront.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,10 +14,11 @@
 
     <Page.Resources>
         <converter:EstadoToColorConverter x:Key="EstadoToColorConverter" />
-    </Page.Resources> 
-    
+        <converter:StringToIntConverter x:Key="StringToIntConverter" />
+    </Page.Resources>
+
+
     <Grid>
-        
         <!-- Encabezado -->
         <TextBlock Text="Bienvenido al parking"
                    HorizontalAlignment="Center"
@@ -24,12 +26,30 @@
                    FontSize="24"
                    Margin="0,10,0,0" />
 
-        <TextBlock x:Name="fllorNumber" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="30" />
-
-
         <!-- Contenido principal -->
         <Grid Margin="20,120,20,20">
-            <ItemsControl ItemsSource="{Binding Espacios}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Sección de Pisos -->
+            <StackPanel Grid.Column="0"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                <TextBlock Text="Pisos" 
+                           FontSize="18" 
+                           Margin="0,0,0,10"
+                           TextAlignment="Center" />
+                <Button Content="1" Width="50" Height="50" Margin="5" Command="{Binding SelectFloorCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}, Converter={StaticResource StringToIntConverter}}" /> 
+                <Button Content="2" Width="50" Height="50" Margin="5" Command="{Binding SelectFloorCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}, Converter={StaticResource StringToIntConverter}}" /> 
+                <Button Content="3" Width="50" Height="50" Margin="5" Command="{Binding SelectFloorCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}, Converter={StaticResource StringToIntConverter}}" /> 
+            </StackPanel>
+
+
+            <!-- Espacios de Parking -->
+            <ItemsControl x:Name="SpacesItemsControl" Grid.Column="1" ItemsSource="{Binding Espacios}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapGrid Orientation="Horizontal" ItemWidth="100" ItemHeight="100" />
@@ -38,11 +58,13 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="models:Espacio">
                         <Button Content="{Binding NumeroEspacio}" 
-                                Width="100" Height="100" 
-                                Margin="5"
-                                BorderBrush="White" 
-                                BorderThickness="1"
-                                Background="{Binding Estado, Converter={StaticResource EstadoToColorConverter}}" />
+                    Width="100" Height="100" 
+                    Margin="5"
+                    BorderBrush="White" 
+                    BorderThickness="1"
+                    Background="{Binding Estado, Converter={StaticResource EstadoToColorConverter}}"
+                    Command="{Binding DataContext.SelectSpaceCommand, ElementName=IncioPage}"
+                    CommandParameter="{Binding NumeroEspacio}" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -31,10 +31,7 @@ namespace ParkingFront.Views.Login
             Frame.Navigate(typeof(RegisterPage));
         }
 
-        private void OnInciok(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(IncioPage));
-        }
+   
 
 
     }

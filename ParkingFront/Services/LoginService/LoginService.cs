@@ -39,12 +39,7 @@ namespace ParkingFront.Services.LoginService
 
             var content = new StringContent(JsonSerializer.Serialize(loginRequest), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("Login", content);
-            // Serializar la solicitud a JSON
-            var jsonRequest = JsonSerializer.Serialize(loginRequest);
-
-            // Imprimir la solicitud en la consola
-            Console.WriteLine("Solicitud de inicio de sesión:");
-            Console.WriteLine(jsonRequest);
+    
 
             if (response.IsSuccessStatusCode)
             {

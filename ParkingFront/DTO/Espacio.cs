@@ -13,5 +13,11 @@ namespace ParkingFront.DTO
         public string Zona { get; set; }
         public string NumeroEspacio { get; set; }
         public string Estado { get; set; }
+
+
+        public string getSpace()
+        {
+            return Zona + " " + NumeroEspacio;
+        }
     }
 }

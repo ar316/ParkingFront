@@ -14,11 +14,13 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using ParkingFront.Services.DialogService;
 using ParkingFront.Services.Navigation;
+using ParkingFront.Services.SpacesService;
 using ParkingFront.Utilities;
 
 using ParkingFront.ViewModels.HomeParking;
 using ParkingFront.ViewModels.Login;
 using ParkingFront.ViewModels.Register;
+using ParkingFront.ViewModels.Spaces;
 using ParkingFront.Views.Login;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -48,13 +50,18 @@ namespace ParkingFront
         {
             var services = new ServiceCollection();
 
-            // Registrar los ViewModels
+            //ViewModels
             services.AddTransient<LoginViewModel>();
             services.AddTransient<RegisterViewModel>();
             services.AddTransient<HomeParkingViewModel>();
+            services.AddTransient<SpacesViewModel>();
+            
+
+            //servicios
             services.AddTransient<MainWindow>();
             services.AddSingleton<InfoBar>();
             services.AddSingleton<IDialogService, DialogService>();
+            services.AddSingleton<SpaceService>();
 
 
             // Registrar el servicio de navegación
@@ -65,6 +72,7 @@ namespace ParkingFront
                 return new NavigationService(frame);
             });
 
+         
             Services = services.BuildServiceProvider();
         }
 

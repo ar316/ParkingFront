@@ -41,17 +41,17 @@ namespace ParkingFront.ViewModels.HomeParking
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public HomeParkingViewModel(InfoBar infoBar, IDialogService dialogService )
+        public HomeParkingViewModel(InfoBar infoBar, IDialogService dialogService)
         {
             _dialogService = dialogService;
             _infoBar = infoBar;
-            ValidateRentCommand = new RelayCommand(ValidateRent);
-        
-    }
+            ValidateRentCommand = new RelayCommandG(ValidateRent);
+
+        }
 
         private async void ValidateRent()
         {
-            if(this._plate.Length >= 5 && this._plate.Length < 5)
+            if (this._plate.Length >= 5 && this._plate.Length < 5)
             {
                 NotificationHelper.ShowNotification(_infoBar, "Rent validated", this._plate, InfoBarSeverity.Success);
             }
@@ -64,7 +64,7 @@ namespace ParkingFront.ViewModels.HomeParking
 
         }
 
-       
+
 
     }
 

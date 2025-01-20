@@ -25,7 +25,7 @@
 
             <Button Content="Iniciar sesión" Command="{Binding LoginCommand }" Width="300" />
             <Button Content="Ingresar al parqueadero" Command="{Binding LoginGuessCommand }" Width="300" />
-            <Button Content="Incio al incioooooo"  Click="OnInciok" Width="300" />
+            <Button Content="Incio al incioooooo"  Command="{Binding InitialParkingCommand }" Width="300" />
             <Button Content="Registrarse" Click="OnRegisterClick" Width="300" />
         </StackPanel>
 
